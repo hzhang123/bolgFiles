@@ -54,7 +54,31 @@ tags:
 
 ![库镜像配置](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1556106563244.png)
 
-3. 用户setting.xml配置，创建==D:/development/maven/.m2==目录，windows下创建==.m2==键入==.m2. #F44336==回车会自动去掉后面的点；然后将conf下setting.xml复制一份到.m2下。
+3. 用户setting.xml配置，创建==D:/development/maven/.m2==目录，windows下创建 ==.m2== 文件夹，键入 ==.m2. #F44336== 回车会自动去掉后面的点；然后将conf下setting.xml复制一份到.m2下。
+
+4. cmd窗口运行==mvn help:system==
+
+![运行截图](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1556107574859.png)
+
+最后会打印系统变量信息
 
 #  二、 创建maven项目
+
+## （一）创建项目
+
+1. IDEA中创建新项目，选择Maven，点击==next==。
+
+![创建空白maven项目](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1556107703942.png)
+
+2. 输入项目坐标信息，点击==next==。
+
+![项目信息](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1556107947190.png)
+
+3. 设置项目信息，点击==Finish==。
+
+![项目信息](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1556108137037.png)
+
+## （二）IDEA中maven设置
+
+
 
