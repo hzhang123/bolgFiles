@@ -60,7 +60,10 @@ tags:
 
 ![运行截图](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1556107574859.png)
 
+
 最后会打印系统变量信息
+
+**==注： #F44336==** setting.xml中一定不要有Tab键等，缩进用空格。
 
 #  二、 创建maven项目
 
