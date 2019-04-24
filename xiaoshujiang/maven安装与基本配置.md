@@ -4,7 +4,7 @@ tags:
 ---
 
 
-> 依赖：java环境，[JDK安装](111)
+> 依赖：java环境，[JDK安装](https://www.cnblogs.com/h-zhang/p/10764778.html)
 
 [toc]
 
@@ -63,7 +63,7 @@ tags:
 
 最后会打印系统变量信息
 
-**==注： #F44336==** setting.xml中一定不要有Tab键等，缩进用空格。
+**==注： #F44336==** setting.xml中一定不要有特殊空白字符，当提示setting.xml报错时用Notpad++打开，选择视图 -> 显示符号 -> 显示所有字符，查看报错行是否因为存在特殊空白字符照成的。
 
 #  二、 创建maven项目
 
