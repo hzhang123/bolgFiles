@@ -82,6 +82,7 @@ tags:
 ![项目信息](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1556108137037.png)
 
 ## （二）IDEA中maven设置
+1. 如果IDEA中未读取到对应配置，需要手动修改。
+2. 配置路径：==File | Settings | Build, Execution, Deployment | Build Tools | Maven #F44336==，根据maven安装中的配置，读取到的信息如下：
 
-
-
+![界面配置](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1556108681305.png)
