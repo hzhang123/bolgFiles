@@ -31,8 +31,30 @@ tags:
 
 ## （三）maven setting.xml配置
 
- 1. 配置本地仓库，==<localRepository>D:/development/maven/MavenRepository</localRepository>==建立
+ 1. 配置本地仓库，创建目录 ==D:/development/maven/MavenRepository==，然后打开加目录下./conf/setting.xml文件，修改如下配置：
 
 ``` xml
+<!-- 本地缓存 -->
 <localRepository>D:/development/maven/MavenRepository</localRepository>
 ```
+
+![本地库配置](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1556104937462.png)
+
+ 2. 配置镜像，国外镜像比较慢，配置国内镜像源，[阿里镜像源查询界面](https://maven.aliyun.com/mvn/search)
+
+``` xml
+<!-- 阿里库镜像 -->
+    <mirror>
+      <id>alimaven</id>
+      <mirrorOf>central</mirrorOf>
+      <name>aliyun maven</name>
+      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+    </mirror>
+```
+
+![库镜像配置](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1556106563244.png)
+
+3. 用户setting.xml配置，创建==D:/development/maven/.m2==目录，windows下创建==.m2==键入==.m2. #F44336==回车会自动去掉后面的点；然后将conf下setting.xml复制一份到.m2下。
+
+#  二、 创建maven项目
+
