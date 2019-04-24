@@ -27,4 +27,12 @@ tags:
 
 ![验证结果](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1556103810306.png)
 
-==安装完成 #F44336==
+==安装完成 #f44336==
+
+## （三）maven setting.xml配置
+
+ 1. 配置本地仓库，==<localRepository>D:/development/maven/MavenRepository</localRepository>==建立
+
+``` xml
+<localRepository>D:/development/maven/MavenRepository</localRepository>
+```
