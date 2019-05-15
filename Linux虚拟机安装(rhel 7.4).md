@@ -1,8 +1,11 @@
 ---
-title: Linux虚拟机安装(rhel 7.4)
+title: Linux虚拟机安装（rhel 7.4）
 tags: linux
 ---
 
+
+----------
+[toc]
 
 # 1. 创建虚拟机
 
