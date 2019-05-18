@@ -8,6 +8,11 @@ tags: linux
 
 [toc]
 
+预期想要搭建本地电脑上的虚拟网络如下图：
+
+![虚拟机NAT网络拓扑](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1558147664.png)
+
+
 # 1. 设置虚拟机网络
 
 ## 1.1. NAT子网设置
