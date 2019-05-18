@@ -17,7 +17,7 @@ tags: linux
 
 ## 1.1. NAT子网设置
 
-![虚拟交换机部分](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1558182066735.png)
+![虚拟交换机设置与虚拟网卡生成](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1558182214374.png)
 
 1. VMware首页点击 -> 编辑 -> 虚拟网络编辑器
 
