@@ -17,6 +17,8 @@ tags: linux
 
 ## 1.1. NAT子网设置
 
+![虚拟交换机部分](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1558182066735.png)
+
 1. VMware首页点击 -> 编辑 -> 虚拟网络编辑器
 
 2. 设置子网
@@ -32,6 +34,8 @@ tags: linux
 ![主机连接到此网络](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1557924710030.png)
 
 ## 1.2. 网卡配置文件设置
+
+![虚拟机部分](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1558182110281.png)
 
 打开文件：==/etc/sysconfig/network-scripts/ifcfg-ens33==(文件可能不是ens33)，根据需要编辑如下内容，有备注的基本为必须配置
 
@@ -114,6 +118,9 @@ route
 3. 点击确定之后通过xshell ssh本地电脑IP地址或虚拟机IP地址都可登录访问虚拟机。
 
 # 2. 配置网络共享
+
+![虚拟网卡连接物理网卡](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1558182151878.png)
+
 1. 打开：==控制面板\网络和 Internet\网络连接 #E91E63==， 鼠标右键当前连接网络的网卡，点击属性。
 
 2. 设置将当前网络共享到虚拟的网卡之上。
