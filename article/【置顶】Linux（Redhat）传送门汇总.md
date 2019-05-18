@@ -1,5 +1,5 @@
 ---
-title: 【置顶】Linux（Redhat）传送门汇总
+title: Linux（Redhat）传送门汇总
 tags: linux
 ---
 
