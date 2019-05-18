@@ -1,7 +1,12 @@
 ---
-title: VMware NAT模式连接外网
+title: 虚拟机网络设置(NAT模式)
 tags: linux
 ---
+
+----------
+
+
+[toc]
 
 # 1. 设置虚拟机网络
 
