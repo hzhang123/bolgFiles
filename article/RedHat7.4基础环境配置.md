@@ -113,3 +113,5 @@ gpgcheck=0
 6. 配置完成之后查看一下rpm列表
 
 ![yum列表](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1558275243725.png)
+
+7. 尝试安装一下vim：yum install vim -y
