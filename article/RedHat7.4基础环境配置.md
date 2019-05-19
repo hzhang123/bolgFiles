@@ -1,5 +1,5 @@
 ---
-title: RedHat7.4基础环境配置 
+title: RedHat7.4 yum配置 
 tags: linux
 ---
 
@@ -96,7 +96,7 @@ python-chardet-2.2.1-1.el7_1.noarch.rpm";
 for i in ${yum_list}; do wget http://mirrors.163.com/centos/7/os/x86_64/Packages/${i}; done;
 ```
 
-4. 安装yum依赖包，单个安装可能会依赖报错，全部安装：rpm -ivh \* ，如果再报错，先尝试安装提示依赖包。
+4. 安装yum依赖包，单个安装可能会依赖报错，全部安装：rpm -ivh \* ，可能提示还会存在其他依赖，如果提示根据关键词到http://mirrors.163.com/centos/7/os或http://mirrors.aliyun.com/centos/7/os网址下载。
 
 ![依赖安装](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1558274806365.png)
 
