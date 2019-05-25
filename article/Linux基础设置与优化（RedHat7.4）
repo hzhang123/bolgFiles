@@ -10,8 +10,6 @@ tags: linux
 
 # 1. 基本设置
 
-## 防火墙
-
 ``` shell
 # 关闭防火墙
 systemctl stop firewalld
@@ -22,6 +20,7 @@ sed -ri 's/^SELINUX=.*$/SELINUX=disabled/g' /etc/selinux/config
 sed -ri 's/.*X11Forwarding.*/X11Forwarding yes/g; s/.*UseLogin.*/UseLogin no/g' /etc/ssh/sshd_config
 # 安装xorg-x11-xauth
 yum install xorg-x11-xauth -y
+cd ~; touch .Xauthority;
 # 重启sshd
 systemctl restart sshd
 
