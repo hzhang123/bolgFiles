@@ -33,5 +33,6 @@ systemctl status firewalld
 sestatus -v
 ```
 
+# 2. hosts
 
 
