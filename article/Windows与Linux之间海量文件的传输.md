@@ -5,6 +5,11 @@ tags:
 
 > mount.cifs 支持通过网络文件系统挂载，不过需要安装cifs-utils，也可通过mount -t cifs挂载，详细的选项可参见man mount.cifs
 
+
+----------
+
+[toc]
+
 # 1. 通过Windows共享文件夹
 
 ## 1.1 设置windows共享
