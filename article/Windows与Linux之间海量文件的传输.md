@@ -61,6 +61,8 @@ http://192.168.2.4/disk0/pic/2019/20190621/girl.jpg
 
 ## xfs ci版本不区分大小写
 
+![ci版本简介](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561194146211.png)
+
 1. 新家一块测试盘
 
 ![新加测试盘](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561192463497.png)
