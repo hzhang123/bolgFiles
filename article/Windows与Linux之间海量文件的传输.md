@@ -41,7 +41,9 @@ df -h
 
 ![linux挂载点下文件](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561191579214.png)
 
-# Linux与Windows大小写问题
+# 附: Linux与Windows大小写问题
+
+## ext4等区分大小写
 
 **文件路径区分大小写的是由文件系统决定的**
 
