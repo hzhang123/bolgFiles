@@ -99,7 +99,7 @@ mkdir -p /var/www/html/pgbadger/;
 # 查找一下pgbadger命令所在目录
 which pgbadger
 # 指定命令路径 -> 指定日志路径(名称根据log_filename参数来的) -> 指定httpd的服务为输出目录: 增量生成日志
-/usr/local/bin/pgbadger -I -q /data/pgdata/pg_log/postgresql-`date "+%w".csv` -O /var/www/html/pgbadger/
+/usr/local/bin/pgbadger -I -q /data/pgdata/pg_log/postgresql-*.csv` -O /var/www/html/pgbadger/
 ```
 
 ### 定时任务
@@ -109,7 +109,7 @@ which pgbadger
 # 凌晨2点补全目录
 0 2 * * * root /usr/bin/mkdir -p /var/www/html/pgbadger/
 # 凌晨2点10分分析前天统计日志
-10 2 * * * root /usr/local/bin/pgbadger -I -q /data/pgdata/pg_log/postgresql-$(expr `date "+%w"` - 1).csv -O /var/www/html/pgbadger/
+10 2 * * * root /usr/local/bin/pgbadger -I -q /data/pgdata/pg_log/postgresql-`date -d "now -1 days" "+%w"`.csv -O /var/www/html/pgbadger/
 
 
 # 重启crond
