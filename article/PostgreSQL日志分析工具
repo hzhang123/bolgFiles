@@ -16,3 +16,32 @@ pgBadger[下载地址](https://github.com/darold/pgbadger/releases)
 
 [Text-CSV_XS-1.39](./attachments/Text-CSV_XS-1.39.tgz)
 [pgbadger-10.3](./attachments/pgbadger-10.3.tar.gz)
+
+### 环境
+
+- Red Hat Enterprise Linux Server release 7.4
+- PostgreSQL 9.6.0
+
+### 安装包版本
+
+- Text-CSV_XS-1.39
+- pgbadger-10.3
+
+### 安装
+
+1. 上传tar包到任意目录
+
+2. 切换到tar包目录执行安装
+
+``` shell
+plugs=`echo -e "Text-CSV_XS-1.39\npgbadger-10.3"`;
+baseDir=`pwd`; 
+for plug in ${plugs}; 
+do 
+    tar zxf ${plug}.*; 
+	cd ${baseDir}/${plug}; 
+	perl Makefile.PL && make && make install; 
+    cd ${baseDir};
+done;
+```
+
