@@ -1,12 +1,11 @@
 ---
 title:  PostgreSQL日志分析工具
-tags: postgresql
+tags: postgresql,linux
 ---
-
 
 ----------
 
-> PostgreSQL日志审计影响性能，在不需要问题排查的时候可以关闭
+> PostgreSQL日志审计影响性能，在不需要问题排查的时候可以关闭。
 
 
 [toc]
@@ -106,7 +105,7 @@ which pgbadger
 ### 定时任务
 
 ``` shell
-# /etc/cron.d目录下创建文件pgbadger_cron并添加如下内容
+# /etc/cron.d目录下创建文件 pgbadger_cron 并添加如下内容
 # 凌晨2点补全目录
 0 2 * * * root /usr/bin/mkdir -p /var/www/html/pgbadger/
 # 凌晨2点10分分析前天统计日志
