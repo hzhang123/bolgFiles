@@ -13,8 +13,8 @@ tags: postgresql,linux
 
 ## 1. pgBadger安装
 
-pgBadger[主页](https://pgbadger.darold.net/)
-pgBadger[下载地址](https://github.com/darold/pgbadger/releases)
+pgBadger:[主页](https://pgbadger.darold.net/)
+pgBadger:[下载地址](https://github.com/darold/pgbadger/releases)
 
 [Text-CSV_XS-1.39](./attachments/Text-CSV_XS-1.39.tgz)
 [pgbadger-10.3](./attachments/pgbadger-10.3.tar.gz)
