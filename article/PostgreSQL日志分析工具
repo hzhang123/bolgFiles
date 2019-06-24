@@ -15,9 +15,7 @@ tags: postgresql,linux
 
 pgBadger:[主页](https://pgbadger.darold.net/)
 pgBadger:[下载地址](https://github.com/darold/pgbadger/releases)
-
-[Text-CSV_XS-1.39](./attachments/Text-CSV_XS-1.39.tgz)
-[pgbadger-10.3](./attachments/pgbadger-10.3.tar.gz)
+Text-CSV_XS-1.39:[下载地址](https://metacpan.org/release/Text-CSV_XS)
 
 ### 环境
 
@@ -25,6 +23,8 @@ pgBadger:[下载地址](https://github.com/darold/pgbadger/releases)
 - PostgreSQL 9.6.0
 
 ### 安装包版本
+
+分析csv格式日志需要Text-CSV_XS
 
 - Text-CSV_XS-1.39
 - pgbadger-10.3
@@ -52,7 +52,7 @@ done;
 postgresql.conf增加配置后重启数据库
 
 ``` dsconfig
-# 选择的csv格式日志，生成要日志指定csv格式日志输入
+# 指定csv格式日志
 log_destination = 'csvlog'
 logging_collector = on
 log_directory = 'pg_log'
@@ -120,8 +120,8 @@ systemctl restart crond.service
 
 ![增量日志索引页](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561381325439.png)
 
-![概览页](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561381400768.png)
+![概览页](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561382707664.png)
 
-![SQL统计](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561381448627.png)
+![SQL统计](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561382707342.png)
 
 等等....
