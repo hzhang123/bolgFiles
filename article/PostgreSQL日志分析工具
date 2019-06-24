@@ -47,3 +47,21 @@ done;
 
 ## 2. PostgreSQL日志审计配置
 
+postgresql.conf增加配置后重启数据库
+
+``` dsconfig
+log_destination = 'csvlog'
+logging_collector = on
+log_directory = 'pg_log'
+log_filename = 'postgresql-%w.log'
+log_file_mode = 0640
+log_truncate_on_rotation = off
+log_rotation_age = 1d
+log_line_prefix = '%t [%r]-[%p]: %l user=%u,db=%d'
+log_lock_waits = off
+log_checkpoints = off
+log_connections = off
+log_disconnections = off
+log_duration = off
+```
+
