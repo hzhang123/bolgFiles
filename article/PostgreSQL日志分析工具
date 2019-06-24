@@ -50,6 +50,7 @@ done;
 postgresql.conf增加配置后重启数据库
 
 ``` dsconfig
+# 选择的csv格式日志，生成要日志指定csv格式日志输入
 log_destination = 'csvlog'
 logging_collector = on
 log_directory = 'pg_log'
@@ -63,11 +64,55 @@ log_checkpoints = off
 log_connections = off
 log_disconnections = off
 log_duration = off
+log_min_duration_statement = 0
 ```
 
 ## 3. 日志生成
 
-``` sql
--- 连接数据库生成几条日志记录
+### 增加几条操作记录
+
+``` shell
+# 连接数据库生成几条日志记录
+for i in `seq 1 4`; 
+do 
+    psql -U postgres -d postgres << EOF
+create table testtable${i}(
+id int,
+name varchar(255));
+insert into testtable${i} values (1, 'hello');
+\d
+select * from testtable${i};
+\q
+EOF
+done;
+```
+
+### 生成日志
+
+``` shell
+# 开启httpd服务
+systemctl start httpd.service
+# 创建日志输出目录
+mkdir -p /var/www/html/pgbadger/;
+# 查找一下pgbadger命令所在目录
+which pgbadger
+# 指定命令路径 -> 指定日志路径(名称根据log_filename参数来的) -> 指定httpd的服务为输出目录: 增量生成日志
+/usr/local/bin/pgbadger -I -q /data/pgdata/pg_log/postgresql-`date "+%w".csv` -O /var/www/html/pgbadger/
+```
+
+### 定时任务
+
+``` shell
+# /etc/cron.d目录下创建文件pgbadger_cron并添加如下内容
 
 ```
+
+
+
+![增量日志索引页](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561381325439.png)
+
+![概览页](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561381400768.png)
+
+![SQL统计](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561381448627.png)
+
+等等....
