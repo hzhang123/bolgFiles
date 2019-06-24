@@ -65,3 +65,9 @@ log_disconnections = off
 log_duration = off
 ```
 
+## 3. 日志生成
+
+``` sql
+-- 连接数据库生成几条日志记录
+
+```
