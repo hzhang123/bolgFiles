@@ -9,7 +9,7 @@ tags: postgresql
 [toc]
 
 
-## pgBadger安装
+## 1. pgBadger安装
 
 pgBadger[主页](https://pgbadger.darold.net/)
 pgBadger[下载地址](https://github.com/darold/pgbadger/releases)
@@ -44,4 +44,6 @@ do
     cd ${baseDir};
 done;
 ```
+
+## 2. PostgreSQL日志审计配置
 
