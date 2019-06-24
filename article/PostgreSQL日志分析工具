@@ -6,6 +6,9 @@ tags: postgresql
 
 ----------
 
+> PostgreSQL日志审计影响性能，在不需要问题排查的时候可以关闭
+
+
 [toc]
 
 
@@ -69,7 +72,7 @@ log_min_duration_statement = 0
 
 ## 3. 日志生成
 
-### 增加几条操作记录
+### 日志示例增加
 
 ``` shell
 # 连接数据库生成几条日志记录
@@ -104,10 +107,17 @@ which pgbadger
 
 ``` shell
 # /etc/cron.d目录下创建文件pgbadger_cron并添加如下内容
+# 凌晨2点补全目录
+0 2 * * * root /usr/bin/mkdir -p /var/www/html/pgbadger/
+# 凌晨2点10分分析前天统计日志
+10 2 * * * root /usr/local/bin/pgbadger -I -q /data/pgdata/pg_log/postgresql-$(expr `date "+%w"` - 1).csv -O /var/www/html/pgbadger/
 
+
+# 重启crond
+systemctl restart crond.service
 ```
 
-
+### 结果示例
 
 ![增量日志索引页](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561381325439.png)
 
