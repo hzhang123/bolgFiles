@@ -5,7 +5,7 @@ tags: postgresql,linux
 
 ----------
 
-> PostgreSQL日志审计影响性能，在不需要问题排查的时候可以关闭。
+> PostgreSQL日志审计可以配合 pgbench、jmeter...测试工具制定测试计划测试性能，由于日志审计比较影响性能，在不需要问题排查或测试的时候可以关闭。
 
 
 [toc]
@@ -71,7 +71,7 @@ log_min_duration_statement = 0
 
 ## 3. 日志生成
 
-### 增加访问日志
+### 访问数据库
 
 ``` shell
 # 初始化pgbenth依赖表
