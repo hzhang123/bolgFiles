@@ -71,22 +71,13 @@ log_min_duration_statement = 0
 
 ## 3. 日志生成
 
-### 日志示例增加
+### 增加访问日志
 
 ``` shell
-# 连接数据库生成几条日志记录
-for i in `seq 1 4`; 
-do 
-    psql -U postgres -d postgres << EOF
-create table testtable${i}(
-id int,
-name varchar(255));
-insert into testtable${i} values (1, 'hello');
-\d
-select * from testtable${i};
-\q
-EOF
-done;
+# 初始化pgbenth依赖表
+pgbench -U postgres -d postgres -i -s 5
+# 5客户端压力10秒
+pgbench -U postgres -d postgres -v -c 5 -T 10
 ```
 
 ### 生成日志
@@ -99,7 +90,7 @@ mkdir -p /var/www/html/pgbadger/;
 # 查找一下pgbadger命令所在目录
 which pgbadger
 # 指定命令路径 -> 指定日志路径(名称根据log_filename参数来的) -> 指定httpd的服务为输出目录: 增量生成日志
-/usr/local/bin/pgbadger -I -q /data/pgdata/pg_log/postgresql-*.csv` -O /var/www/html/pgbadger/
+/usr/local/bin/pgbadger -I -q /data/pgdata/pg_log/postgresql-*.csv -O /var/www/html/pgbadger/
 ```
 
 ### 定时任务
@@ -120,8 +111,10 @@ systemctl restart crond.service
 
 ![增量日志索引页](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561381325439.png)
 
-![概览页](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561382707664.png)
 
-![SQL统计](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561382707342.png)
+![概览页](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561436364317.png)
+
+
+![SQL统计](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1561436422758.png)
 
 等等....
