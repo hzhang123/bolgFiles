@@ -27,7 +27,7 @@ tar -zxvf ${tarball}
 cp docker/* /usr/bin
 ```
 
-2. 添加到service: ==vim /etc/systemd/system/dockerd.service==
+2. 添加到service: ==vim /etc/systemd/system/docker.service==
 
 ``` dsconfig
 [Unit]
@@ -99,20 +99,20 @@ WantedBy=multi-user.target
 
 ``` shell
 #添加文件权限并启动docker
-chmod +x /etc/systemd/system/dockerd.service
+chmod +x /etc/systemd/system/docker.service
 #重载unit配置文件
 systemctl daemon-reload
-#启动dockerd
-systemctl start dockerd        
+#启动docker
+systemctl start docker       
 #设置开机自启
-systemctl enable dockerd.service
+systemctl enable docker.service
 ```
 
 4. 检查状态
 
 ``` shell
 # 状态
-systemctl status dockerd
+systemctl status docker
 # 版本
 docker -v
 ```
