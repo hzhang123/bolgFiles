@@ -107,3 +107,12 @@ systemctl start dockerd
 #设置开机自启
 systemctl enable dockerd.service
 ```
+
+4. 检查状态
+
+``` shell
+# 状态
+systemctl status dockerd
+# 版本
+docker -v
+```
