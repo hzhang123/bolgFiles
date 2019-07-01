@@ -105,5 +105,5 @@ systemctl daemon-reload
 #启动dockerd
 systemctl start dockerd        
 #设置开机自启
-systemctl enable dockerd.service                  
+systemctl enable dockerd.service
 ```
