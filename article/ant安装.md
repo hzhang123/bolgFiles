@@ -24,6 +24,6 @@ ant版本:1.10.5
 1. 解压apache-ant-1.10.5-bin.zip 
 2. 新建变量ANT_HOME:==ant解压目录 #F44336==
 3. Path环境变量追加
-==;%ANT_HOME%/bin #F44336==
+==;%ANT_HOME%\bin #F44336==
 4. classpath环境变量追加:
-==;%ANT_HOME%/lib #F44336==
+==;%ANT_HOME%\lib #F44336==
