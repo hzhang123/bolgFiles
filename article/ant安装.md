@@ -29,3 +29,5 @@ ant版本:1.10.5
 ==;%ANT_HOME%\lib #F44336==
 
 **版本验证**: ==ant -version==
+
+![版本](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1562768486244.png)
