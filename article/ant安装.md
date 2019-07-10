@@ -27,3 +27,5 @@ ant版本:1.10.5
 ==;%ANT_HOME%\bin #F44336==
 4. classpath环境变量追加:
 ==;%ANT_HOME%\lib #F44336==
+
+**版本验证**: ==ant -version==
