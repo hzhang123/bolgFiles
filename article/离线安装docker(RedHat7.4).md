@@ -29,6 +29,8 @@ cp docker/* /usr/bin
 
 2. 添加到service: ==vim /etc/systemd/system/docker.service==
 
+这里是基础配置，详细配置可使用指定配置文件来启动服务
+
 ``` dsconfig
 [Unit]
 
