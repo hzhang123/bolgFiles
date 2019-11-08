@@ -7,9 +7,11 @@ grammar_cjkRuby: true
 
 # 软件安装
 
-VirtualBox安装：[主页](https://www.virtualbox.org/)
+安装都比较简单，下载一直点击Next。
 
-Vagrant安装：[主页](https://www.vagrantup.com/)
+VirtualBox安装：[官网主页](https://www.virtualbox.org/)
+
+Vagrant安装：[官网主页](https://www.vagrantup.com/)
 
 # 虚拟机
 
