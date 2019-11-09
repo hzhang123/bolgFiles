@@ -140,5 +140,5 @@ config.vm.synced_folder "../data", "/vagrant_data", create:true, owner:"root", g
 vagrant reload
 ```
 
-![测试共享](./images/1573293390463.png)
+![测试共享目录](./images/1573293390463.png)
 
