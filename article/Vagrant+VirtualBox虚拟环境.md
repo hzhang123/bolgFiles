@@ -83,3 +83,20 @@ echo "This is a test shared file." > test/file;
 
 ![共享文件](./images/1573287381279.png)
 
+2. 自定义共享目录
+
+需要先安装，否则会报错==mount: unknown filesystem type 'vboxsf'==
+
+
+``` shell
+# 定位到config.vm.synced_folder所在行，编辑信息
+# ../data	本机目录
+# /vagrant_data	虚拟机目录
+# 创建以及权限
+config.vm.synced_folder "../data", "/vagrant_data", create:true, owner:"root", group:"root"
+
+# vagrant重启机器
+vagrant reload
+
+```
+
