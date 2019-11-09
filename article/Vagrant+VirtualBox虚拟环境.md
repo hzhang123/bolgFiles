@@ -109,12 +109,13 @@ vagrant halt
 # 到http://download.virtualbox.org/virtualbox 最新版本目录下下载 MacOSVBoxGuestAdditions.iso文件
 # 按如图步骤添加软驱，在弹出框选择 VBoxGuestAdditions.iso
 
-# 启动虚拟机
-vagrant up
+# 启动虚拟机并登陆
+vagrant up;
+vagrant ssh;
 # 切换到root
 sudo su - root;
 mkdir -p /media/cdrom;
-# 查看软驱列表并挂载
+# 查看软驱列表并挂载，注意软驱名字
 lsscsi;
 mount /dev/sr0 /media/cdrom;
 # 安装扩展包
@@ -123,6 +124,8 @@ sudo ./VBoxLinuxAdditions.run;
 ```
 
 ![添加软驱步骤](./images/1573289712905.png)
+
+![设备列表](./images/1573293140210.png)
 
 ==处理完成之后便可以设置共享了==
 
@@ -135,6 +138,7 @@ config.vm.synced_folder "../data", "/vagrant_data", create:true, owner:"root", g
 
 # vagrant重启机器
 vagrant reload
-
 ```
+
+![测试共享](./images/1573293390463.png)
 
