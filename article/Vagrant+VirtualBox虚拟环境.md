@@ -73,5 +73,13 @@ ssh -p 2222 vagrant@127.0.0.1 -i /Users/growingio/developments/vagrant_centos/.v
 
 1. 基础共享目录
 
+``` shell
+# 项目虚拟机所在的目录就是默认的共享目录，不过文件的共享需要虚拟机重启
+mkdir test
+echo "This is a test shared file." > test/file;
+```
 
+![创建共享文件](./images/1573287816498.png)
+
+![共享文件](./images/1573287381279.png)
 
