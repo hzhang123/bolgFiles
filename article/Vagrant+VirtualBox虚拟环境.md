@@ -1,6 +1,6 @@
 ---
 title: Vagrant+VirtualBox虚拟环境
-tags: 新建,模板,小书匠
+tags: Vagrant,VirtualBox
 grammar_cjkRuby: true
 ---
 
@@ -16,7 +16,7 @@ Vagrant安装：[官网主页](https://www.vagrantup.com/)
 
 # 虚拟机基础配置
 
-## 虚拟机创建与登录
+## 虚拟机创建
 
 查看命令与子命令帮助文档：
 ==vagrant -h==
@@ -70,6 +70,8 @@ ssh -p 2222 vagrant@127.0.0.1 -i /Users/growingio/developments/vagrant_centos/.v
 
 
 ## 共享目录
+
+1. 基础共享目录
 
 
 
