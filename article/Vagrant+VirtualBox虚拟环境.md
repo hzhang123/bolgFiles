@@ -21,13 +21,14 @@ Vagrant安装：[官网主页](https://www.vagrantup.com/)
 查看命令与子命令帮助文档：
 ==vagrant -h==
 ==vagrant COMMAND -h==
-box子命令：==vagrant box <subcommand> -h==
+box子命令： ==vagrant box <subcommand> -h==
 
 1. 到VirtualBox上找到一个自己需要的虚拟机，这里使用==centos/7==
 
 ![centos/7](./images/1573190736287.png)
 
 2. 初始化并启动虚拟机
+
 ``` shell
 # 创建初始化目录
 mkdir -p vagrant_centos;
@@ -85,7 +86,7 @@ echo "This is a test shared file." > test/file;
 
 2. 自定义共享目录
 
-需要先安装，否则会报错==mount: unknown filesystem type 'vboxsf'==
+需要先安装virtualbox guest addtions，否则会报错==mount: unknown filesystem type 'vboxsf' #F44336==
 
 
 ``` shell
