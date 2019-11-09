@@ -35,7 +35,10 @@ cd vagrant_centos;
 vagrant box list;
 vagrant init centos/7;
 vagrant up
-
+# 命令行直接登录虚拟机
+vagrant ssh
 ```
 
 ![初始化并启动虚拟机](./images/1573278645453.png)
+
+![登录虚拟机输出信息并退出](./images/1573283018164.png)
