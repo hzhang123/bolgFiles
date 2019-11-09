@@ -4,6 +4,7 @@ tags: 新建,模板,小书匠
 grammar_cjkRuby: true
 ---
 
+[toc]
 
 # 软件安装
 
@@ -13,7 +14,9 @@ VirtualBox安装：[官网主页](https://www.virtualbox.org/)
 
 Vagrant安装：[官网主页](https://www.vagrantup.com/)
 
-# 虚拟机
+# 虚拟机基础配置
+
+## 虚拟机创建与登录
 
 查看命令与子命令帮助文档：
 ==vagrant -h==
@@ -55,4 +58,18 @@ vagrant ssh
 # -i	指定秘钥
 ssh -p 2222 vagrant@127.0.0.1 -i /Users/growingio/developments/vagrant_centos/.vagrant/machines/default/virtualbox/private_key
 ```
+
+5. 常用启停管理命令
+
+**启动**：vagrant up
+**停止**：vagrant halt
+**暂停**：vagrant suspend
+**恢复**：vagrant resume
+**重启**：vagrant reload
+**销毁**：vagrant destroy
+
+
+## 共享目录
+
+
 
