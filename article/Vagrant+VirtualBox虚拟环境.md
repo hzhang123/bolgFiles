@@ -86,8 +86,45 @@ echo "This is a test shared file." > test/file;
 
 2. 自定义共享目录
 
-需要先安装virtualbox guest addtions，否则会报错==mount: unknown filesystem type 'vboxsf' #F44336==
+**需要先安装**virtualbox guest addtions，否则会报错==mount: unknown filesystem type 'vboxsf' #F44336==
 
+- ubuntu系统处理方案
+
+``` shell
+# 进入虚拟机
+vagrant ssh
+sudo apt-get update;
+sudo apt-get install virtualbox-guest-utils;
+```
+
+- Mac处理方案
+
+``` shell
+# 进入虚拟机
+vagrant ssh
+sudo yum update -y;
+sudo yum install gcc kernel-devel -y; 
+# 关闭虚拟机
+vagrant halt
+# 到http://download.virtualbox.org/virtualbox 最新版本目录下下载 MacOSVBoxGuestAdditions.iso文件
+# 按如图步骤添加软驱，在弹出框选择 VBoxGuestAdditions.iso
+
+# 启动虚拟机
+vagrant up
+# 切换到root
+sudo su - root;
+mkdir -p /media/cdrom;
+# 查看软驱列表并挂载
+lsscsi;
+mount /dev/sr0 /media/cdrom;
+# 安装扩展包
+cd /media/cdrom;
+sudo ./VBoxLinuxAdditions.run;
+```
+
+![添加软驱步骤](./images/1573289712905.png)
+
+==处理完成之后便可以设置共享了==
 
 ``` shell
 # 定位到config.vm.synced_folder所在行，编辑信息
