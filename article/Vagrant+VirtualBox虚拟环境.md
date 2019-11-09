@@ -42,3 +42,17 @@ vagrant ssh
 ![初始化并启动虚拟机](./images/1573278645453.png)
 
 ![登录虚拟机输出信息并退出](./images/1573283018164.png)
+
+3. ssh登录，先试用命令查看默认ssh配置：==vagrant ssh-config==
+
+![默认ssh配置](./images/1573285870469.png)
+
+``` shell
+# ssh使用默认的秘钥登录
+# -p 2222	指定端口
+# vagrant	登录角色
+# 127.0.0.1	虚拟机IP
+# -i	指定秘钥
+ssh -p 2222 vagrant@127.0.0.1 -i /Users/growingio/developments/vagrant_centos/.vagrant/machines/default/virtualbox/private_key
+```
+
