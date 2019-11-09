@@ -15,8 +15,27 @@ Vagrant安装：[官网主页](https://www.vagrantup.com/)
 
 # 虚拟机
 
+查看命令与子命令帮助文档：
+==vagrant -h==
+==vagrant COMMAND -h==
+box子命令：==vagrant box <subcommand> -h==
+
+1. 到VirtualBox上找到一个自己需要的虚拟机，这里使用==centos/7==
+
+![centos/7](./images/1573190736287.png)
+
+2. 初始化并启动虚拟机
 ``` shell
-vagrant init centos/7
+# 创建初始化目录
+mkdir -p vagrant_centos;
+# 添加镜像，并输入选择自己的虚拟平台，这里选择3，virtualbox
+vagrant box add centos/7;
+# 进入vagrant目录，查看可用box并初始化启动
+cd vagrant_centos;
+vagrant box list;
+vagrant init centos/7;
 vagrant up
 
 ```
+
+![初始化并启动虚拟机](./images/1573278645453.png)
