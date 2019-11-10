@@ -205,6 +205,15 @@ vagrant box list
 
 ``` shell
 # 创建新的项目目录
-
+cd ..; mkdir vagrant_hzhang; cd vagrant_hzhang;
+# 使用刚从文件导出的box初始化项目
+vagrant init hzhang/centos7;
+# 启动
+vagrant up
+# 
 ```
+
+![添加虚拟机与启动](./images/1573365199465.png)
+
+![登录机器](./images/1573365466987.png)
 
