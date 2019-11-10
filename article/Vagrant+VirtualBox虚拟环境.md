@@ -167,3 +167,23 @@ vagrant reload
 ![ssh登录](./images/1573361124079.png)
 
 
+# 打包bxo与使用box
+
+## 重新打包
+
+``` shell
+# 进入项目目录启动虚拟机
+vagrant up
+# 切换root，修改语言环境
+vagrant ssh
+sudo su - root
+echo 'LANG="en_US.UTF-8"' > /etc/sysconfig/i18n
+# 并删除rules文件（打包布置的时候以防网络冲突）
+ls /etc/udev/rules.d/*
+sudo rm -f /etc/udev/rules.d/60-vboxadd.rules
+exit
+# 打包虚拟机为box文件
+vagrant package
+```
+
+![打包为.box文件](./images/1573364094341.png)
