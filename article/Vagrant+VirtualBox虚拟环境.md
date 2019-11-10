@@ -146,15 +146,24 @@ vagrant reload
 
 ## 配置私有网络
 
-1. 修改文件，将config.vm.network "private_network", ip: "192.168.33.10"，修改为自己希望使用的IP
+1. 修改文件，将config.vm.network "private_network"这一行修改为自己希望使用的IP
 2. 重启虚拟机`vagrant reload`
 
-![私有IP](./images/1573293671312.png)
+![私有网络](./images/1573293671312.png)
 
 3. 网络通畅测试与ssh登录
 
 ![ssh登录](./images/1573359720135.png)
 
 ## 配置公有网络
+
+1. 修改文件，将config.vm.network "public_network"取消注释，如果需要静态IP，需要与本地电脑同网段。
+2. 重启虚拟机`vagrant reload`
+
+![公有网络](./images/1573360872182.png)
+
+3. 网络通畅测试与ssh登录
+
+![ssh登录](./images/1573361124079.png)
 
 
