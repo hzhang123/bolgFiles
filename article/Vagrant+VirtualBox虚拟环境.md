@@ -167,9 +167,9 @@ vagrant reload
 ![ssh登录](./images/1573361124079.png)
 
 
-# 打包bxo与使用box
+# 打包box与使用box
 
-## 重新打包
+## 打包
 
 ``` shell
 # 进入项目目录启动虚拟机
@@ -187,3 +187,16 @@ vagrant package
 ```
 
 ![打包为.box文件](./images/1573364094341.png)
+
+## 添加打包box文件
+
+``` shell
+# 添加打包后的.box文件到box列表
+# hzhang/centos7 为自定义的box名称
+# package.box 为要添加的box文件
+vagrant box add hzhang/centos7 package.box
+# 查看box列表
+vagrant box list
+```
+
+![从.box文件添加box](./images/1573364438924.png)
