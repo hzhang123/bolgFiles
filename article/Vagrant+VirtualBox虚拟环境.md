@@ -155,4 +155,6 @@ vagrant reload
 
 ![ssh登录](./images/1573359720135.png)
 
+## 配置公有网络
+
 
