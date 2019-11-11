@@ -231,6 +231,8 @@ vagrant status
 vagrant up
 ```
 
+![所有虚拟机的状态](./images/1573451919120.png)
+
 ## 多主机的网络配置
 
 
