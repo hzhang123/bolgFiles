@@ -261,5 +261,21 @@ vagrant up
 
 ![多主机私有网络](./images/1573452253925.png)
 
+![多主机网络测试](./images/1573452464459.png)
 
+## 多主机其他设置
 
+``` shell
+# 如：
+  # 定义hadoop101机器
+  config.vm.define "hadoop101" do |hadoop101|
+    # 主机网络
+    hadoop101.vm.network "private_network", ip: "192.168.2.101"
+    # 主机名
+    hadoop101.vm.hostname = "hadoop101"
+    # 同步目录, 本地目录下
+    hadoop101.vm.synced_folder "hadoop101_data" "/vagrant"
+  end
+```
+
+![多主机设置](./images/1573452886460.png)
