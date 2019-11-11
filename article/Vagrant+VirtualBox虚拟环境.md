@@ -130,7 +130,7 @@ sudo ./VBoxLinuxAdditions.run;
 ==处理完成之后便可以设置共享了==
 
 ``` shell
-# 定位到config.vm.synced_folder所在行，编辑信息
+# Vagrantfile文件定位到config.vm.synced_folder所在行，编辑信息
 # ../data	本机目录
 # /vagrant_data	虚拟机目录
 # 创建以及权限
@@ -146,7 +146,7 @@ vagrant reload
 
 ## 配置私有网络
 
-1. 修改文件，将config.vm.network "private_network"这一行修改为自己希望使用的IP
+1. 修改文件Vagrantfile，将config.vm.network "private_network"这一行修改为自己希望使用的IP
 2. 重启虚拟机`vagrant reload`
 
 ![私有网络](./images/1573293671312.png)
@@ -157,7 +157,7 @@ vagrant reload
 
 ## 配置公有网络
 
-1. 修改文件，将config.vm.network "public_network"取消注释，如果需要静态IP，需要与本地电脑同网段。
+1. 修改文件Vagrantfile，将config.vm.network "public_network"取消注释，如果需要静态IP，需要与本地电脑同网段。
 2. 重启虚拟机`vagrant reload`
 
 ![公有网络](./images/1573360872182.png)
@@ -218,3 +218,20 @@ vagrant up
 ![登录机器](./images/1573365466987.png)
 
 # 多主机
+
+``` shell
+# 修改Vagrantfile文件，定义多虚拟机
+  config.vm.define "hadoop101" do |hadoop101| end
+  config.vm.define "hadoop102" do |hadoop102| end
+  config.vm.define "hadoop103" do |hadoop103| end
+  
+# 查看所有虚拟机状态
+vagrant status
+# 启动虚拟机，vagrant up启动所有虚拟机，vagrant up [NAME]启动指定名称虚拟机。
+vagrant up
+```
+
+## 多主机的网络配置
+
+
+
