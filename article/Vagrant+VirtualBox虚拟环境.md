@@ -274,8 +274,8 @@ vagrant up
     # 主机名
     hadoop101.vm.hostname = "hadoop101"
     # 同步目录, 本地项目目录下hadoop101_data到虚拟机/vagrant
-    hadoop101.vm.synced_folder "hadoop101_data" "/vagrant"
+    hadoop101.vm.synced_folder "hadoop101_data", "/vagrant", create:true, owner:"root", group:"root"
   end
 ```
 
-![多主机设置](./images/1573452886460.png)
+![多主机其它设置](./images/1573453298908.png)
