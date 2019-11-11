@@ -244,7 +244,22 @@ vagrant up
 
 ## 多主机的网络配置
 
+``` shell
+# 修改Vagrantfile文件，定义多虚拟机的私有网络，公有网络参考单机公有网络的配置，将如下配置替换修改即可
+  config.vm.define "hadoop101" do |hadoop101|
+    hadoop101.vm.network "private_network", ip: "192.168.2.101"
+  end
 
+  config.vm.define "hadoop102" do |hadoop102|
+    hadoop102.vm.network "private_network", ip: "192.168.2.102"
+  end
+
+  config.vm.define "hadoop103" do |hadoop103|
+    hadoop103.vm.network "private_network", ip: "192.168.2.103"
+  end
+```
+
+![多主机私有网络](./images/1573452253925.png)
 
 
 
