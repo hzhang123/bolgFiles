@@ -144,6 +144,9 @@ vagrant reload
 
 # 配置网络
 
+私有网络：需要与本机网络位于==不同网段==
+公有网络：需要与本机网络位于==同一网段==
+
 ## 配置私有网络
 
 1. 修改文件Vagrantfile，将config.vm.network "private_network"这一行修改为自己希望使用的IP
