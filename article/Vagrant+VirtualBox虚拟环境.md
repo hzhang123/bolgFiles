@@ -1,5 +1,5 @@
 ---
-title: Vagrant+VirtualBox虚拟集群
+title: Vagrant+VirtualBox虚拟环境
 tags: Vagrant,VirtualBox
 grammar_cjkRuby: true
 ---
