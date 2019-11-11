@@ -273,7 +273,7 @@ vagrant up
     hadoop101.vm.network "private_network", ip: "192.168.2.101"
     # 主机名
     hadoop101.vm.hostname = "hadoop101"
-    # 同步目录, 本地目录下
+    # 同步目录, 本地项目目录下hadoop101_data到虚拟机/vagrant
     hadoop101.vm.synced_folder "hadoop101_data" "/vagrant"
   end
 ```
