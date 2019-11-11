@@ -224,9 +224,14 @@ vagrant up
 
 ``` shell
 # 修改Vagrantfile文件，定义多虚拟机
-  config.vm.define "hadoop101" do |hadoop101| end
-  config.vm.define "hadoop102" do |hadoop102| end
-  config.vm.define "hadoop103" do |hadoop103| end
+  config.vm.define "hadoop101" do |hadoop101|
+  end
+
+  config.vm.define "hadoop102" do |hadoop102|
+  end
+
+  config.vm.define "hadoop103" do |hadoop103|
+  end
   
 # 查看所有虚拟机状态
 vagrant status
@@ -234,9 +239,12 @@ vagrant status
 vagrant up
 ```
 
+
 ![所有虚拟机的状态](./images/1573451919120.png)
 
 ## 多主机的网络配置
+
+
 
 
 
