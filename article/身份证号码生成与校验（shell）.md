@@ -39,6 +39,8 @@ A     A     A     A     A     A     Y     Y     
 
 ## 示例
 
+==用了一个postgresql函数校验日期格式，如果不校验可以去掉==
+
 ``` shell
 #!/bin/bash
 #
