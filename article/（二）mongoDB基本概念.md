@@ -1,5 +1,5 @@
 ---
-title: （二）mongoDB基本概念
+title: （二）MongoDB基本概念
 tags: mongodb
 grammar_cjkRuby: true
 ---
@@ -44,4 +44,4 @@ value可以是任何形式的数据，在同一个文档中可以包含多个种
 存储的数据是KV（键值对）的形式，key是字符串，插入的时候不用指定key的类型，系统会自动将其转换为字符串类型；value可以为数据集合里面的任意类型包括数组和文档。
 
 
-  [1]: ./images/1520384353113.jpg
+  [1]: https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1575102177570.png
