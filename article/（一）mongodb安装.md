@@ -1,5 +1,5 @@
 ---
-title:  （一）mongodb安装
+title:  （一）MongoDB安装
 tags: mongodb
 grammar_cjkRuby: true
 ---
