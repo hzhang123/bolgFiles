@@ -14,7 +14,7 @@ grammar_cjkRuby: true
 
 ## 工具选用
 
-使用mock-server，主要用到了其中的3个功能：期望匹配、模拟相应、请求转发
+使用mock-server，主要用到了其中的3个功能：期望匹配、模拟响应、请求转发
 
 [mock-server官网](http://www.mock-server.com/#what-is-mockserver)
 
