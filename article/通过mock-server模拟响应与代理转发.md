@@ -18,9 +18,9 @@ grammar_cjkRuby: true
 
 [mock-server官网](http://www.mock-server.com/#what-is-mockserver)
 
-![期望匹配与模拟响应](./images/1579157364289.png)
+![期望匹配与模拟响应](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579162175002.png)
 
-![期望匹配与请求转发](./images/1579157399523.png)
+![期望匹配与请求转发](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579162175214.png)
 
 ## 安装mock-server
 
@@ -90,7 +90,7 @@ java -jar <path to mockserver-jetty-jar-with-dependencies.jar> -serverPort <port
 
 [百度云盘下载地址](https://pan.baidu.com/s/1GYDaNjFF8IwvA-1q5dwp9g)
 
-![脚本运行方式](./images/1579160488119.png)
+![脚本运行方式](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579162175073.png)
 
 ``` shell
 # 目录结构
@@ -110,17 +110,17 @@ mockserver
 
 ### 1. 测试期望
 
-![预期期望-预期返回](./images/1579160722969.png)
+![预期期望-预期返回](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579162175139.png)
 
-![预期期望-代理转发](./images/1579160820884.png)
+![预期期望-代理转发](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579162175727.png)
 
 ### 2. 通过接口管理期望
 
-![重置期望](./images/1579160958639.png)
+![重置期望](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579162175215.png)
 
-![设置期望](./images/1579161012748.png)
+![设置期望](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579162504874.png)
 
-![修改期望后-请求返回](./images/1579161064357.png)
+![修改期望后-请求返回](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579162550746.png)
 
 ### 3. logging.properties例子
 
