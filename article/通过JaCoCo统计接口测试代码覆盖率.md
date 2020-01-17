@@ -27,7 +27,7 @@ grammar_cjkRuby: true
  - 使用cli工具获取JaCoCo覆盖率统计文件
  - 使用cli工具根据exec文件生成覆盖率报告
 
-### JaCoCo使用
+### 2. JaCoCo使用
 
 参考jacoco官方使用文档：[官方文档索引](https://www.jacoco.org/jacoco/trunk/doc/integrations.html)、[agent帮助文档](https://www.jacoco.org/jacoco/trunk/doc/agent.html)、[cli帮助文档](https://www.jacoco.org/jacoco/trunk/doc/cli.html)
 
