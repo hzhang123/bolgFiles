@@ -1,6 +1,6 @@
 ---
 title: 通过JaCoCo统计接口测试代码覆盖率
-tags: jacoco
+tags: JaCoCo
 grammar_cjkRuby: true
 ---
 
