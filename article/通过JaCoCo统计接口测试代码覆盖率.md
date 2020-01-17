@@ -175,9 +175,9 @@ git push -u origin master
 
 - postman 发送测试请求
 
-![test1接口<0分支](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579249994106.png)
+![test1接口fasle分支](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579249994106.png)
 
-![test2接口>0分支](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579252673527.png)
+![test2接口true分支](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579252673527.png)
 
 
 ### 2. jenkins任务
