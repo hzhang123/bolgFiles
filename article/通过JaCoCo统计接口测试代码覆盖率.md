@@ -27,13 +27,13 @@ grammar_cjkRuby: true
  - 使用cli工具获取JaCoCo覆盖率统计文件
  - 使用cli工具根据exec文件生成覆盖率报告
 
-### jacoco使用
+### JaCoCo使用
 
 参考jacoco官方使用文档：[官方文档索引](https://www.jacoco.org/jacoco/trunk/doc/integrations.html)、[agent帮助文档](https://www.jacoco.org/jacoco/trunk/doc/agent.html)、[cli帮助文档](https://www.jacoco.org/jacoco/trunk/doc/cli.html)
 
-- **jacoco官方给出了3种收集覆盖率文件的方式**：file、tcpserver、tcpclient。
+- **JaCoCo官方给出了3种收集覆盖率文件的方式**：file、tcpserver、tcpclient。
 
-在jvm虚拟机启动时加入参数： ==-javaagent:[yourpath/]jacocoagent.jar=[option1]=[value1],[option2]=[value2] #E91E63== ， 实例如下：
+在JVM虚拟机启动时加入参数： ==-javaagent:[yourpath/]jacocoagent.jar=[option1]=[value1],[option2]=[value2] #E91E63== ， 实例如下：
 
 ``` shell
 # Example: 输出到文件，在JVM终止时，执行数据被写入本地文件。接口测试不会考虑这种情况（单测一般是用这种）
@@ -53,7 +53,7 @@ grammar_cjkRuby: true
 # port：配合tcpserver来指定对外开放的jacoco端口。端口不能被占用
 ```
 
-- **jacoco命令行界面**：命令行界面提供了基本的操作，基本能满足接口覆盖率报告的生成；dump数据与生成报告都使用cli。
+- **JaCoCo命令行界面**：命令行界面提供了基本的操作，基本能满足接口覆盖率报告的生成；dump数据与生成报告都使用cli。
 
 ``` shell
 # Example：获取jacoco server对外开放地址的数据。
