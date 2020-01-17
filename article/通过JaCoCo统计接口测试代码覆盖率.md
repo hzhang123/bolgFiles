@@ -4,10 +4,9 @@ tags: jacoco
 grammar_cjkRuby: true
 ---
 
-
 > 需求：统计微服务接口测试的代码覆盖率
-> 1. jacoco的ant与maven方法都是在编译期对单元测试的覆盖率统计
-> 2. jacoco的可以开启一个agent服务收集运行过程中的代码执行覆盖率。
+> 1. JaCoCo的ant与maven方法都是在编译期对单元测试的覆盖率统计
+> 2. JaCoCo的可以开启一个agent服务收集运行过程中的代码执行覆盖率。
 > 主要会用到jacoco 的两个功能：agent和cli
 
 [toc]
@@ -23,10 +22,10 @@ grammar_cjkRuby: true
 统计覆盖率过程基本如：
 1. 微服务启动，同时启动agent收集覆盖率
 2. 接下来基本都是jenkins任务需要做的
- - git 拉取源码
- - 编译源码
- - 获取jacoco覆盖率统计dump文件
- - 生成报告
+ - git获取项目源码
+ - 使用构建工具编译源码
+ - 使用cli工具获取JaCoCo覆盖率统计文件
+ - 使用cli工具根据exec文件生成覆盖率报告
 
 ### jacoco使用
 
@@ -72,7 +71,7 @@ java -jar ${jacoco_home}/lib/jacococli.jar >>==report==<< ${destfile} --classfil
 
 ==接下来创建一个项目实验一下==
 
-## Sprint boot测试项目
+## Sprint Boot测试项目
 
 ### 1. 创建项目
 
@@ -178,7 +177,7 @@ git push -u origin master
 
 ![test1接口<0分支](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579249994106.png)
 
-![test2接口>0分支](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579250018568.png)
+![test2接口>0分支](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579252673527.png)
 
 
 ### 2. jenkins任务
@@ -189,9 +188,11 @@ git push -u origin master
 
 - 添加string参数
 
-![参数](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579250433006.png)
+![string 构建参数](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579252334530.png)
 
 - Pipeline script
+
+只是测试，所以pipeline脚本中有有一些参数我直接写死了，比如：GIT_BRANCH、CODE_REPO、jacoco_home、classfiles、sourcefiles，可以根据不同项目配置一下构建参数。
 
 ``` groovy
 #!/usr/bin/env groovy
@@ -203,6 +204,8 @@ pipeline {
         // 如果scala构建使用sbt，jenkins兼容不太好需要environment中拼接工具地址
         SBT_HOME = tool name: 'sbt1.3.0', type: 'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'
         PATH = "${env.SBT_HOME}/bin:${env.PATH}"
+        // 可以添加构建参数用来指定获取分支等信息
+        GIT_BRANCH = "master"
         CODE_REPO = "https://github.com/hzhang123/jacoco-demo.git"
     }
     tools {
@@ -233,23 +236,19 @@ pipeline {
         stage('Exec & Report') {
             steps {
                 sh '''
-                # jacoco home
-                # jacoco_home="/Users/growingio/developments/tools/jacoco-0.8.5"
+                # JaCoCo依赖在jenkins上的地址
+                jacoco_home="/Users/growingio/developments/tools/jacoco-0.8.5"
                 # ----------------
                 # dump tcp端口数据
                 # ----------------
-                # --address IP地址
-                # --port 端口
-                # --destfile 保存文件名称
-                #
                 address=`echo ${server_addr} | awk -F: '{print $1}'`
                 port=`echo ${server_addr} | awk -F: '{print $2}'`
                 destfile=target/JacocoDemo.exec
                 java -jar ${jacoco_home}/lib/jacococli.jar dump --address ${address} --port ${port} --destfile ${destfile}
 
                 # 生成报告
-                classfiles="target/scala-2.12/classes"
-                sourcefiles="app"
+                classfiles="target/classes"
+                sourcefiles="src/main/java"
                 java -jar ${jacoco_home}/lib/jacococli.jar report ${destfile} --classfiles ${classfiles} --sourcefiles ${sourcefiles} --html report
                 '''
             }
@@ -263,4 +262,19 @@ pipeline {
     }
 }
 ```
+
+### 3. 构建报告
+
+详细参数可以查看官方文档：[代码覆盖率参数文档](https://www.jacoco.org/jacoco/trunk/doc/counters.html)
+
+**Instructions (C0 Coverage)**：JaCoCo 计算的最小单位就是字节码指令。指令覆盖率表明了在所有的指令中指令执行的覆盖率。
+**Branches (C1 Coverage)**：JaCoCo还计算所有的for与if分支覆盖率，异常处理不在分支计算范围内。黄色（部分覆盖）、红色（未覆盖）、绿色（全部覆盖）
+**Cyclomatic Complexity**：圈复杂度
+**Line**：可能一行会被编译为多个指令，所以在源码高亮显示每行代码的情况。黄色（部分覆盖）、红色（未覆盖）、绿色（全部覆盖）
+**Methods**：每个方法至少包含一个指令，当改指令被执行时认为方法被执行。
+**Classes**：每个类至少包含一个方法，当该方法被执行时认为类被执行。
+
+![报告概览](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579253156126.png)
+
+![代码详细执行情况](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579253184007.png)
 
