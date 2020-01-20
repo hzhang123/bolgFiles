@@ -6,7 +6,7 @@ grammar_cjkRuby: true
 
 [toc]
 
-# 软件安装
+## 1. 软件安装
 
 安装都比较简单，下载一直点击Next。
 
@@ -14,18 +14,18 @@ VirtualBox安装：[官网主页](https://www.virtualbox.org/)
 
 Vagrant安装：[官网主页](https://www.vagrantup.com/)
 
-# 虚拟机基础配置
+## 2. 虚拟机基础配置
 
-## 虚拟机创建
+### 虚拟机创建
 
 查看命令与子命令帮助文档：
 ==vagrant -h==
 ==vagrant COMMAND -h==
 box子命令： ==vagrant box <subcommand> -h==
 
-1. 到VirtualBox上找到一个自己需要的虚拟机，这里使用==centos/7==
+1. 到VirtualBox上找到一个自己需要的虚拟机，这里使用 ==centos/7==
 
-![centos/7](./images/1573190736287.png)
+![centos/7](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517493783.png)
 
 2. 初始化并启动虚拟机
 
@@ -43,13 +43,13 @@ vagrant up
 vagrant ssh
 ```
 
-![初始化并启动虚拟机](./images/1573278645453.png)
+![初始化并启动虚拟机](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517494808.png)
 
-![登录虚拟机输出信息并退出](./images/1573283018164.png)
+![登录虚拟机输出信息并退出](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517493786.png)
 
 3. ssh登录，先试用命令查看默认ssh配置：==vagrant ssh-config==
 
-![默认ssh配置](./images/1573285870469.png)
+![默认ssh配置](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517494357.png)
 
 ``` shell
 # ssh使用默认的秘钥登录
@@ -70,7 +70,7 @@ ssh -p 2222 vagrant@127.0.0.1 -i /Users/growingio/developments/vagrant_centos/.v
 **销毁**：vagrant destroy
 
 
-## 共享目录
+### 共享目录
 
 1. 基础共享目录
 
@@ -80,9 +80,9 @@ mkdir test
 echo "This is a test shared file." > test/file;
 ```
 
-![创建共享文件](./images/1573287816498.png)
+![创建共享文件](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517493189.png)
 
-![共享文件](./images/1573287381279.png)
+![共享文件](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517493359.png)
 
 2. 自定义共享目录
 
@@ -123,9 +123,9 @@ cd /media/cdrom;
 sudo ./VBoxLinuxAdditions.run;
 ```
 
-![添加软驱步骤](./images/1573289712905.png)
+![添加软驱步骤](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517494809.png)
 
-![设备列表](./images/1573293140210.png)
+![设备列表](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517493164.png)
 
 ==处理完成之后便可以设置共享了==
 
@@ -140,39 +140,39 @@ config.vm.synced_folder "../data", "/vagrant_data", create:true, owner:"root", g
 vagrant reload
 ```
 
-![测试共享目录](./images/1573293390463.png)
+![测试共享目录](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517493360.png)
 
-# 配置网络
+## 3. 配置网络
 
 私有网络：需要与本机网络位于==不同网段==
 公有网络：需要与本机网络位于==同一网段==
 
-## 配置私有网络
+### 配置私有网络
 
 1. 修改文件Vagrantfile，将config.vm.network "private_network"这一行修改为自己希望使用的IP
 2. 重启虚拟机`vagrant reload`
 
-![私有网络](./images/1573293671312.png)
+![私有网络](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517493187.png)
 
 3. 网络通畅测试与ssh登录
 
-![ssh登录](./images/1573359720135.png)
+![ssh登录](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517662007.png)
 
-## 配置公有网络
+### 配置公有网络
 
 1. 修改文件Vagrantfile，将config.vm.network "public_network"取消注释，如果需要静态IP，需要与本地电脑同网段。
 2. 重启虚拟机`vagrant reload`
 
-![公有网络](./images/1573360872182.png)
+![公有网络](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517493353.png)
 
 3. 网络通畅测试与ssh登录
 
-![ssh登录](./images/1573361124079.png)
+![ssh登录](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517662009.png)
 
 
-# 打包box与添加box
+## 4. 打包box与添加box
 
-## 打包box
+### 打包box
 
 ``` shell
 # 进入项目目录启动虚拟机
@@ -189,9 +189,9 @@ exit
 vagrant package
 ```
 
-![打包为.box文件](./images/1573364094341.png)
+![打包为.box文件](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517495372.png)
 
-## 添加box
+### 添加box
 
 ``` shell
 # 添加打包后的.box文件到box列表
@@ -202,9 +202,9 @@ vagrant box add hzhang/centos7 package.box
 vagrant box list
 ```
 
-![从.box文件添加box](./images/1573364438924.png)
+![从.box文件添加box](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517494580.png)
 
-## 使用打包的box
+### 使用打包的box
 
 ``` shell
 # 创建新的项目目录
@@ -216,11 +216,11 @@ vagrant up
 # 
 ```
 
-![添加虚拟机与启动](./images/1573365199465.png)
+![添加虚拟机与启动](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517494800.png)
 
-![登录机器](./images/1573365466987.png)
+![登录机器](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517495065.png)
 
-# 多主机
+## 5. 多主机
 
 ``` shell
 # 修改Vagrantfile文件，定义多虚拟机
@@ -240,9 +240,9 @@ vagrant up
 ```
 
 
-![所有虚拟机的状态](./images/1573451919120.png)
+![所有虚拟机的状态](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517493784.png)
 
-## 多主机的网络配置
+### 多主机的网络配置
 
 ``` shell
 # 修改Vagrantfile文件，定义多虚拟机的私有网络，公有网络参考单机公有网络的配置，将如下配置替换修改即可
@@ -259,11 +259,11 @@ vagrant up
   end
 ```
 
-![多主机私有网络](./images/1573452253925.png)
+![多主机私有网络](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517493785.png)
 
-![多主机网络测试](./images/1573452464459.png)
+![多主机网络测试](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1579517662483.png)
 
-## 多主机其他设置
+### 多主机其他设置
 
 ``` shell
 # 如：
@@ -278,4 +278,4 @@ vagrant up
   end
 ```
 
-![多主机其它设置](./images/1573453298908.png)
+![多主机其它设置](./images/1579517662009_1.png)
