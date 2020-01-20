@@ -7,9 +7,9 @@ grammar_cjkRuby: true
 
 
 ----------
-[TOC]
 
-### 安装准备
+
+## 安装准备
 1、上传安装文件到/usr/local目录之后解压文件，cd /usr/local && tar -zxvf mongodb-linux-x86_64-3.2.9.tgz
 2、建立软连接：cd /usr/local && ln -s mongodb-linux-x86_64-3.2.9 mongodb
 3、建立数据目录、配置文件、日志文件
@@ -17,22 +17,22 @@ mkdir -p /data/mongodata;
 mkdir -p /usr/local/mongodb/etc /usr/local/mongodb/log;
 touch /usr/local/mongodb/etc/mongodb.conf /usr/local/mongodb/log/mongodb.log;
 
-### 启动mongodb
+## 启动mongodb
 
 > 启动mongodb有两种方式
 
-#### 1、命令行参数启动
+### 1. 命令行参数启动
 
 cd /usr/local/mongodb/bin && ./mongod --dbpath=/data/mongodata --logpath=/usr/local/mongodb/log/mongodb.log --logappend --port=27017 --fork
 
-#### 2、从配置文件启动
+### 2. 从配置文件启动
 
 cd /usr/local/mongodb/bin && ./mongod --config /usr/local/mongodb/etc/mongodb.conf
 
 配置文件的详细参数见：[==附录一：配置文件详解 #80006e==](#jump1)
 
 
-### 使用服务启动mongodb
+## 使用服务启动mongodb
 
 使用系统服务命令启动需要先将服务加入到系统服务中，如何将mongo添加到系统服务见：[==附录二 ：添加mongodb到系统服务 #80006e==](#jump2)
 
@@ -44,7 +44,7 @@ echo "export PATH=/usr/local/mongodb/bin:\$PATH" >> ~/.bash_profile && source ~/
 
 之后root用户遍可以在任意目录运行mongodb的命令了
 
-### 参数解释
+## 参数解释
 
 > 不需要完全记住，知道有这么个东西就行
 
@@ -63,7 +63,7 @@ echo "export PATH=/usr/local/mongodb/bin:\$PATH" >> ~/.bash_profile && source ~/
 --auth 是否需要验证权限登录(用户名和密码)
 --config 配置文件位置
 
-### 用户授权和管理
+## 用户授权和管理
 
 > 上面的配置文件中并没有打开权限验证，所以现在登录是不需要验证的
 
@@ -79,7 +79,7 @@ echo "export PATH=/usr/local/mongodb/bin:\$PATH" >> ~/.bash_profile && source ~/
 10. 创建用户：db.createUser({user: "myuser",pwd: "mypwd",roles: [{ role: "readWrite", db: "mydb" }]});
 11. 退出mongo之后使用刚刚创建的角色登录（前面的ip可以使任何安装有mongo的ip，这样便可以连接任何一台机器上的mongo）：mongo 127.0.0.1/mydb -u myuser -p mypwd
 
-### 附录一：配置文件详解
+## 附录一：配置文件详解
 
 ————————配置文件————————
 <span id="jump1"></span>
@@ -779,7 +779,7 @@ master：默认为false，当设置为true，则配置当前实例作为主实�
 
 
 
-### 附录二：添加mongodb到系统服务
+## 附录二：添加mongodb到系统服务
 
 <span id="jump2"></span>
 
