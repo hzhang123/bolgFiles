@@ -6,11 +6,10 @@ tags: hadoop
 
 ----------
 
-[toc]
 
-# 1. maven工程
+## 1. maven工程
 
-## 1.1 创建maven工程
+### 1.1 创建maven工程
 
 1. 选择创建工程。
 
@@ -25,7 +24,7 @@ tags: hadoop
 
 ![坐标](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1564214578980.png)
 
-## 1.2 修改配置文件
+### 1.2 修改配置文件
 
 1. 修改pom.xml，mainClass选择自己的入口类如下：
 
@@ -147,7 +146,7 @@ log4j.appender.logfile.layout.ConversionPattern=%d %p [%c] - %m%n
 
 ```
 
-## 1.3 Mapper类
+### 1.3 Mapper类
 
 ``` java
 package per.hao.mapreduce.wordcount;
@@ -191,7 +190,7 @@ public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritabl
 ```
 
 
-## 1.4 Reduces类
+### 1.4 Reduces类
 
 ``` java
 package per.hao.mapreduce.wordcount;
@@ -224,7 +223,7 @@ public class WordCountReduce extends Reducer<Text, IntWritable, Text, IntWritabl
 ```
 
 
-## 1.5 Driver类
+### 1.5 Driver类
 
 ``` java
 package per.hao.mapreduce.wordcount;
@@ -279,7 +278,7 @@ public class WordCountDriver {
 ```
 
 
-## 1.6 入口类
+### 1.6 入口类
 
 ``` java
 package per.hao.mapreduce;
@@ -306,7 +305,7 @@ public class MRMainClass {
 
 ```
 
-## 1.7 测试
+### 1.7 测试
 
 1. 打包jar包
 
@@ -349,18 +348,18 @@ HADOOP_TMP_DIR	myhadoop	export
 ![输出结果](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1564298770677.png)
 
 
-# 2. 普通工程
+## 2. 普通工程
 
 **注：** 相比maven的通过pom.xml配置文件配置依赖与打包；普通工程 **==手动添加依赖 #E91E63==** 与 **==打包 #E91E63==**
 
-## 2.1 添加依赖
+### 2.1 添加依赖
 
 1. 点击File -> Project Structure
 2. 点击Modules -> 选择项目 -> Dependencies -> JARs or dir...
 
 ![依赖添加界面](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1564299019180.png)
 
-## 2.2 打包
+### 2.2 打包
 
 1. 点击File -> Project Structure。
 2. 依次点击图片所示蓝色部分。
