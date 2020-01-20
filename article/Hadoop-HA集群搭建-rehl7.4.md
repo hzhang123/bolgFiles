@@ -9,11 +9,10 @@ tags: hadoop
 > 无说明需要登录其它机器操作，都是在集群的HD-2-101上执行的命令。
 > 所有安装包地址：[百度网盘](https://pan.baidu.com/s/1LQzpKyIsJjlXFpPlAd4N9Q)，提取码：24oy
 
-[toc]
 
-# 1. 基础环境配置
+## 1. 基础环境配置
 
-## 1.1 克隆虚拟机
+### 1.1 克隆虚拟机
 
 虚拟的安装与静态IP等配置见：[Linux传送门汇总](https://www.cnblogs.com/h-zhang/p/10887002.html)
 
@@ -28,7 +27,7 @@ tags: hadoop
 
 4. 依照上面方法克隆所需台虚拟机。
 
-## 1.2 修改静态IP
+### 1.2 修改静态IP
 
 1. 点击开启所有虚拟机。
 2. vmware进入虚拟机打开 ==/etc/sysconfig/network-scripts/ifcfg-ens33 #F44336== 修改静态IP字段 ==IPADDR==。
@@ -36,14 +35,14 @@ tags: hadoop
 
 注：这里配置三台机器(192.168.2.101;192.168.2.102;192.168.2.103)
 
-## 1.3 本机依赖安装
+### 1.3 本机依赖安装
 
 ``` shell
 # 先安装本机的依赖，其它没有的依赖后续再安装，目前我电脑现在需要的就这几个o_0
 yum install tcl-devel.x86_64 rsync.x86_64 ntp.x86_64 -y
 ```
 
-## 1.4 配置群改
+### 1.4 配置群改
 
 shell脚本内容：
 1. 配置当前机器到其余机器的信任
@@ -79,14 +78,14 @@ sh doCommand other "init 0";
 init 0;
 ```
 
-## 1.5 安装依赖
+### 1.5 安装依赖
 
 ``` shell
 cd /home/autoconfig/bin;
 sh doCommand all "yum install tcl-devel.x86_64 rsync.x86_64 ntp.x86_64 -y"
 ```
 
-## 1.6 安装jdk
+### 1.6 安装jdk
 
 首先要检查所有机器是否安装java，并卸载
 
@@ -121,7 +120,7 @@ export JAVA_HOME=/opt/cluster/java
 export PATH=$PATH:$JAVA_HOME/bin
 ```
 
-## 1.7 时间同步
+### 1.7 时间同步
 
 注：这里选择HD-2-101为ntpd对时服务器
 
@@ -181,12 +180,12 @@ watch ntpq -p
 sh doCommand other "systemctl stop ntpd.service;/usr/sbin/ntpdate HD-2-101;"
 ```
 
-# 2. 集群规划
+## 2. 集群规划
 
 ![集群角色分布](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1564195259848.png)
 
 
-# 3. 配置Zookeeper集群
+## 3. 配置Zookeeper集群
 
 
 安装包下载地址：[zookeeper-3.4.14.tar.gz](http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz)
@@ -248,16 +247,16 @@ sh doCommand all "source /etc/profile; /opt/cluster/zookeeper/bin/zkServer.sh st
 sh doCommand all "source /etc/profile; /opt/cluster/zookeeper/bin/zkServer.sh status";
 ```
 
-# 4. HDFS-HA 与YARN-HA 集群配置
+## 4. HDFS-HA 与YARN-HA 集群配置
 
-## 4.1 修改env.sh配置
+### 4.1 修改env.sh配置
 
 1. 切换到/opt/cluster/hadoop/etc/hadoop路径
 2. hadoop-env.sh==修改 #F44336====export JAVA_HOME=/opt/cluster/java==
 3. yarn-env.sh==增加 #F44336====export JAVA_HOME=/opt/cluster/java==
 4. mapred-env.sh==增加 #F44336====export JAVA_HOME=/opt/cluster/java==
 
-## 4.2 修改site.xml配置
+### 4.2 修改site.xml配置
 
 1. 上传hadoop_template.tar.gz模版压缩包到/home目录下并解压：`tar -zxvf /home/hadoop_template.tar.gz -C /home`
 
@@ -265,7 +264,7 @@ sh doCommand all "source /etc/profile; /opt/cluster/zookeeper/bin/zkServer.sh st
 3. sh /home/hadoop_template/ha/env.sh运行脚本，自动完成配置。
 4. ha模板路径/home/hadoop_template/ha，所有的模板文件配置如下：
 
-### 4.2.1 core-site.xml.template
+#### 4.2.1 core-site.xml.template
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -303,7 +302,7 @@ sh doCommand all "source /etc/profile; /opt/cluster/zookeeper/bin/zkServer.sh st
 </configuration>
 ```
 
-### 4.2.2 hdfs-site.xml.template
+#### 4.2.2 hdfs-site.xml.template
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -389,7 +388,7 @@ sh doCommand all "source /etc/profile; /opt/cluster/zookeeper/bin/zkServer.sh st
 
 ```
 
-### 4.2.3 yarn-site.xml.template
+#### 4.2.3 yarn-site.xml.template
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -450,7 +449,7 @@ sh doCommand all "source /etc/profile; /opt/cluster/zookeeper/bin/zkServer.sh st
 
 ```
 
-### 4.2.4 mapred-site.xml.template
+#### 4.2.4 mapred-site.xml.template
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -465,7 +464,7 @@ sh doCommand all "source /etc/profile; /opt/cluster/zookeeper/bin/zkServer.sh st
 </configuration>
 ```
 
-### 4.2.5 env.sh脚本
+#### 4.2.5 env.sh脚本
 
 ``` shell
 #!/bin/bash
@@ -508,9 +507,9 @@ done
 
 ```
 
-# 5. 集群启动
+## 5. 集群启动
 
-## 5.1 hdfs启动
+### 5.1 hdfs启动
 
 1. 同步配置到其他机器
 
@@ -576,7 +575,7 @@ sh /opt/cluster/hadoop/bin/hdfs haadmin -getServiceState nn1;
 sh /opt/cluster/hadoop/bin/hdfs haadmin -getServiceState nn2;
 ```
 
-## 5.2 yarn启动
+### 5.2 yarn启动
 
 1. HD-2-101启动yarn
 
@@ -603,7 +602,7 @@ sh /opt/cluster/hadoop/bin/yarn rmadmin -getServiceState rm2;
 
 ![yarn HD-2-102状态](https://www.github.com/hzhang123/bolgFiles/raw/master/xiaoshujiang/1564201502583.png)
 
-# 6. 环境验证
+## 6. 环境验证
 
 1. 创建文件word.txt，内容如下：
 
